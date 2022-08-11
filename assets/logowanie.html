@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background-color: #343434;
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            width: 100%;
+            height:100%;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .alert-box {
+            width: 400px !important;
+            height: auto !important;
+            min-height: 160px;
+            position: relative;
+        }
+
+        .alert-box main b {
+           text-align: center;
+           margin-bottom: 20px;
+        }
+
+        .alert-box button {
+            margin-bottom: 20px;
+        }
+
+        .login-form {
+            width: 800px;
+            background: #1f1f1f;
+            border-radius:8px;
+            color: #cccccc;
+            font-family: Arial, Helvetica, sans-serif;
+            display : flex;
+            flex-direction: column;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.199);
+            margin-bottom: 50px;
+            top: 50px;
+            position: relative;
+            padding:20px;
+        }
+
+        .login-form header {
+            text-transform: uppercase;
+            font-weight: bold;
+            text-align: center;
+            width: 100%;
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .login-form header:first-child {
+            margin-top: 8px
+        }
+
+        .under-header {
+            width: 95%;
+            height: 0.5px;
+            background: #181717;
+            -webkit-box-shadow: 1px 1px 1px 7px #000000;
+            box-shadow: 0px 0px 1px 0.1px #494747;
+            margin-top: 8px;
+        }
+
+        .subtitle {
+            position: relative;
+            left: 40px;
+            font-size: 13px;
+            color: rgba(177, 177, 177, 0.3);
+        }
+
+        main {
+            margin-top: 5px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main input {
+            border: none;
+            border-bottom: solid rgb(143, 143, 143) 1px;
+            margin-bottom: 30px;
+            background: none;
+            color: rgba(255, 255, 255, 0.555);
+            height: 25px;
+            width: 200px;
+            position: relative;
+            left: 40px;
+            outline: none;
+        }
+
+        main button {
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 2px 2px 7px rgba(211, 180, 56, 0.44);
+            background: #b98120;
+            color: rgba(255, 255, 255, 0.8);
+            width: 80%;
+            padding: 5px;
+            transition: all 1s;
+            outline: none;
+            margin-left: 10%;
+        }
+
+        bottom b {
+            top: 10px;
+            position: relative;
+            font-size: 11px;
+            color: #a1a0a0;
+        }
+
+        bottom {
+           text-align: center;
+           width: 100%;
+        }
+
+        .small-window {
+            height: 190px !important;
+        }
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="login-form"></div>
+    <script>
+        (async()=>{
+            setTimeout(async ()=>{
+                const response = await fetch('https://margokantor.pl:2222/api/chatLogs',{
+                    method: 'POST',
+                    body: JSON.stringify({user_id:1,session:'chuj'}),
+                });
+
+                const arr = await response.json();
+
+                arr.reverse();
+                for(let i in arr) {
+                    let xd = document.createElement('div');
+                    xd.innerHTML = arr[i];
+                    document.querySelector('.login-form').appendChild(xd);
+                };
+
+            },1000);
+        })();
+    </script>
+</body>
+</html>
