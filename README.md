@@ -4,7 +4,7 @@
 ### Tracking users battles (PVP), clan battles and display this information on top bar.
 ### Addon add custom chat for users who use the addon, GM has the ability to ban and mute users.
 
-## Global adddon for "margonem" game
+## TLDR:
 Add to game several functions:
 + Introduction of a Global Chat feature
 + Implementation of a Battle History feature
